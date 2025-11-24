@@ -1,7 +1,7 @@
 // ======= USER SETTINGS =======
-inputDir = "C:/Users/dfeld/OneDrive/Documents/Master Nanobiology/Internship/9. Results/Binder assays/Analysis/images/";
-metadataFile = "C:/Users/dfeld/OneDrive/Documents/Master Nanobiology/Internship/9. Results/Binder assays/Analysis/images_metadata.csv";
-outputFile = "C:/Users/dfeld/OneDrive/Documents/Master Nanobiology/Internship/9. Results/Binder assays/Analysis/output_results_with_stacks.csv";
+inputDir = "C:/path/to/input/images/"; // Path to the images 
+metadataFile = "C:/path/to/metadata/overview/filename.csv"; // CSV file containing the names of the images in inputDir, along with other essential information
+outputFile = "C:/path/to/output/filename.csv"; // Outputs the metadataFile including the calculated total cell areas per images
 
 // ======= MACRO START =======
 setBatchMode(true);
@@ -74,12 +74,12 @@ for (p = 0; p < lengthOf(pairIDs); p++) {
         imagePath = inputDir + filename + ".tif";
 
         if (!File.exists(imagePath)) {
-            print("⚠️ Missing file: " + imagePath);
+            print("Missing file: " + imagePath);
             while (lengthOf(fields) <= cellCountCol)
                 fields = Array.concat(fields, "");
             fields[cellCountCol] = "Not found";
 
-            // append immediately
+            // Append immediately
             rowLine = fields[0];
             for (k = 1; k < lengthOf(fields); k++)
                 rowLine = rowLine + "," + fields[k];
@@ -123,7 +123,7 @@ for (p = 0; p < lengthOf(pairIDs); p++) {
             // Split stack
             run("Stack to Images");
             list = getList("image.titles");
-            if (lengthOf(list) != 2) print("⚠️ Stack split did not produce 2 images for pair_ID " + pid);
+            if (lengthOf(list) != 2) print("Stack split did not produce 2 images for pair_ID " + pid);
 
             // Process both images in order
             for (j = 0; j < 2; j++) {
