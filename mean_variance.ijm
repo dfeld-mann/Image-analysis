@@ -1,7 +1,7 @@
 // ======= USER SETTINGS =======
-stackDir = "C:/Users/dfeld/OneDrive/Documents/Master Nanobiology/Internship/9. Results/Binder assays/Analysis/stack_videos/";
-metadataFile = "C:/Users/dfeld/OneDrive/Documents/Master Nanobiology/Internship/9. Results/Binder assays/Analysis/output_results_with_stacks.csv";
-outputFile = "C:/Users/dfeld/OneDrive/Documents/Master Nanobiology/Internship/9. Results/Binder assays/Analysis/output_results_videos.csv";
+stackDir = "C:/path/to/input/folders/"; // Path to the folders containing image time-sequences that will be converted to stacks
+metadataFile = "C:/path/to/metadata/overview/filename.csv"; // CSV file containing the names of the folders in stackDir, along with other essential information
+outputFile = "C:/path/to/output/filename.csv"; // Outputs the metadataFile including the calculated variances
 
 // ======= MACRO START =======
 setBatchMode(true);
